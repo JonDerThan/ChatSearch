@@ -12,6 +12,7 @@ SOURCES += \
     chartswidget.cpp \
     countpiechart.cpp \
     counttable.cpp \
+    daytable.cpp \
     main.cpp \
     mainwindow.cpp \
     phrasecounter.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     chartswidget.h \
     countpiechart.h \
     counttable.h \
+    daytable.h \
     mainwindow.h \
     phrasecounter.h \
     streak.h \

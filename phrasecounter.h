@@ -19,6 +19,7 @@ public:
 
     QVector<QPair<QString, int>> getUsers() const;
     QVector<Streak> getStreaks() const;
+    const QVector<QPair<QDate, int>>& getDays() const;
 
 public slots:
     void search();
@@ -42,10 +43,13 @@ private:
     QMap<QString, int> users;
     QMap<QString, Streak> activeStreaks;
     QVector<Streak> streaks;
+    QMap<QDate, int> days;
+    QVector<QPair<QDate, int>> daysList;
 
     bool messageMatches(const WhatsAppMessage &message);
 
     void orderStreaks();
+    void orderDays();
 
     QMap<QString, QString> names;
     void loadNames();

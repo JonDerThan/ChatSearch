@@ -9,6 +9,7 @@
 #include "counttable.h"
 #include "countpiechart.h"
 #include "streaktable.h"
+#include "daytable.h"
 
 class ChartsWidget : public QWidget
 {

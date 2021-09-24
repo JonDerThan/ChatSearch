@@ -44,11 +44,17 @@ QVector<Streak> PhraseCounter::getStreaks() const
     return streakList;
 }
 
+const QVector<QPair<QDate, int> > &PhraseCounter::getDays() const
+{
+    return daysList;
+}
+
 void PhraseCounter::search()
 {
     users.clear();
     streaks.clear();
     activeStreaks.clear();
+    days.clear();
 
     for (int i = 0; i < chat.length(); i++) {
         const WhatsAppMessage &message = chat[i];
@@ -73,6 +79,9 @@ void PhraseCounter::search()
             }
 
             users[message.getAuthor()] += 1;
+
+            const QDate &date = message.getDateTime().date();
+            days.insert(date, days.value(date, 0) + 1);
         }
     }
 
@@ -81,6 +90,7 @@ void PhraseCounter::search()
     }
 
     orderStreaks();
+    orderDays();
 
     emit searchCompleted();
 }
@@ -146,6 +156,19 @@ void PhraseCounter::orderStreaks()
 
     std::sort(streaks.begin(), streaks.end(), [](const Streak &streak1, const Streak &streak2) {
         return streak1.getCount() > streak2.getCount();
+    });
+}
+
+void PhraseCounter::orderDays()
+{
+    daysList.clear();
+
+    for (const QDate &date : days.keys()) {
+        daysList.append(QPair<QDate, int>{date, days.value(date)});
+    }
+
+    std::sort(daysList.begin(), daysList.end(), [](const QPair<QDate, int> &day1, const QPair<QDate, int> &day2) {
+        return day1.second > day2.second;
     });
 }
 
