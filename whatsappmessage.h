@@ -8,9 +8,9 @@ class WhatsAppMessage
 {
 public:
     WhatsAppMessage() = default;
-    WhatsAppMessage(const QRegularExpressionMatch &match);
+    WhatsAppMessage(const QDateTime &dateTime, const QString &author, const QString &content);
 
-    void append(const QRegularExpressionMatch &match);
+    void append(const QString &text);
 
     QDateTime getDateTime() const;
     QString getAuthor() const;

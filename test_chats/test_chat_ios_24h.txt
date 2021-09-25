@@ -1,0 +1,4 @@
+[25.09.21, 13:52:31] Du hast die Gruppe “Test” erstellt.
+[25.09.21, 13:52:31] Test: Nachrichten und Anrufe sind Ende-zu-Ende-verschlüsselt. Niemand außerhalb dieses Chats kann sie lesen oder anhören, nicht einmal WhatsApp.
+[25.09.21, 13:52:35] User1: Das ist ein Test
+[25.09.21, 13:52:57] User1: Bild weggelassen
